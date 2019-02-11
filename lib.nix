@@ -2,7 +2,7 @@ let
 
   # From https://github.com/input-output-hk/iohk-ops/blob/e6f1ae95cdbfdd5c213aa0b9a1ef67150febc503/lib.nix
   
-  fetchNixPkgs =
+  fetchNixpkgs =
   let
     try = builtins.tryEval <nixpkgs_override>;
   in
@@ -10,7 +10,7 @@ let
       then builtins.trace "Using <nixpkgs_override>" try.value
       else (import ./fetch-github.nix) { jsonSpec = builtins.readFile ./nixpkgs-src.json; };
 
-  nixpkgs = import fetchNixPkgs;
+  nixpkgs = import fetchNixpkgs;
 
   pkgs = nixpkgs {};
 
@@ -18,6 +18,6 @@ let
 
 in lib // (rec {
 
-  inherit fetchNixPkgs nixpkgs;
+  inherit fetchNixpkgs nixpkgs;
 
 })
