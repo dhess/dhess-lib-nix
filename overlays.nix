@@ -7,7 +7,7 @@
   ./overlays/lib/emacs.nix
   ./overlays/lib/ipaddr.nix
   ./overlays/lib/maintainers.nix
-  ./overlays/lib/nixpkgs-lib-quixoftic.nix
+  ./overlays/lib/dhess-lib-nix.nix
   ./overlays/lib/operators.nix
   ./overlays/lib/secrets.nix
   ./overlays/lib/security.nix

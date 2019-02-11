@@ -7,7 +7,7 @@ let
 in
 {
   lib = (super.lib or {}) // {
-    nixpkgs-lib-quixoftic = (super.lib.nixpkgs-lib-quixoftic or {}) // {
+    dhess-lib-nix = (super.lib.dhess-lib-nix or {}) // {
       inherit path;
     };
   };

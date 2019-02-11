@@ -10,9 +10,9 @@ let
 in
 
 stdenv.mkDerivation {
-  name = "nlq-types-attrsets-${version}";
+  name = "dln-types-attrsets-${version}";
   buildInputs = [ pkgs.nix ];
-  NIX_PATH="nixpkgs=${pkgs.path}:nixpkgs-overlays=${pkgs.lib.nixpkgs-lib-quixoftic.path}/overlays/lib";
+  NIX_PATH="nixpkgs=${pkgs.path}:nixpkgs-overlays=${pkgs.lib.dhess-lib-nix.path}/overlays/lib";
 
   buildCommand = ''
     datadir="${pkgs.nix}/share"
@@ -29,7 +29,7 @@ stdenv.mkDerivation {
     cacheDir=$TEST_ROOT/binary-cache
 
     nix-store --init
-    cd ${pkgs.lib.nixpkgs-lib-quixoftic.path}/tests/attrsets
+    cd ${pkgs.lib.dhess-lib-nix.path}/tests/attrsets
     
     nix-instantiate --eval --strict attrsets.nix
     [[ "$(nix-instantiate --eval --strict attrsets.nix)" == "[ ]" ]]

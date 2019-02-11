@@ -14,7 +14,7 @@ in
 stdenv.mkDerivation rec {
   inherit src;
 
-  name = "nlq-cleanHaskell-test-${version}";
+  name = "dln-cleanHaskell-test-${version}";
 
   doCheck = true;
   checkPhase = ''

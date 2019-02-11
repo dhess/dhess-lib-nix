@@ -15,7 +15,7 @@ in
 stdenv.mkDerivation rec {
   inherit src;
 
-  name = "nlq-cleanSystemCruft-test-${version}";
+  name = "dln-cleanSystemCruft-test-${version}";
 
   doCheck = true;
   checkPhase = ''

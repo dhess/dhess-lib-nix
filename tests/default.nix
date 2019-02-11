@@ -14,45 +14,45 @@ in
 
   ## cleanSourceX tests.
 
-  nlqCleanSourceNix = callPackage ./cleanNix { src = lib.cleanSourceNix ./test-dir; };
-  nlqCleanSourceHaskell = callPackage ./cleanHaskell { src = lib.cleanSourceHaskell ./test-dir; };
-  nlqCleanSourceSystemCruft = callPackage ./cleanSystemCruft { src = lib.cleanSourceSystemCruft ./test-dir; };
-  nlqCleanSourceEditors = callPackage ./cleanEditors { src = lib.cleanSourceEditors ./test-dir; };
-  nlqCleanSourceMaintainer = callPackage ./cleanMaintainer { src = lib.cleanSourceMaintainer ./test-dir; };
-  nlqCleanSourceAllExtraneous = callPackage ./cleanAllExtraneous { src = lib.cleanSourceAllExtraneous ./test-dir; };
+  dlnCleanSourceNix = callPackage ./cleanNix { src = lib.cleanSourceNix ./test-dir; };
+  dlnCleanSourceHaskell = callPackage ./cleanHaskell { src = lib.cleanSourceHaskell ./test-dir; };
+  dlnCleanSourceSystemCruft = callPackage ./cleanSystemCruft { src = lib.cleanSourceSystemCruft ./test-dir; };
+  dlnCleanSourceEditors = callPackage ./cleanEditors { src = lib.cleanSourceEditors ./test-dir; };
+  dlnCleanSourceMaintainer = callPackage ./cleanMaintainer { src = lib.cleanSourceMaintainer ./test-dir; };
+  dlnCleanSourceAllExtraneous = callPackage ./cleanAllExtraneous { src = lib.cleanSourceAllExtraneous ./test-dir; };
 
 
   ## cleanPackage tests.
 
-  nlqCleanPackageNix = lib.cleanPackage lib.cleanSourceNix (callPackage ./cleanNix { src = ./test-dir;});
-  nlqCleanPackageHaskell = lib.cleanPackage lib.cleanSourceHaskell (callPackage ./cleanHaskell { src = ./test-dir;});
-  nlqCleanPackageSystemCruft = lib.cleanPackage lib.cleanSourceSystemCruft (callPackage ./cleanSystemCruft { src = ./test-dir;});
-  nlqCleanPackageEditors = lib.cleanPackage lib.cleanSourceEditors (callPackage ./cleanEditors { src = ./test-dir;});
-  nlqCleanPackageMaintainer = lib.cleanPackage lib.cleanSourceMaintainer (callPackage ./cleanMaintainer { src = ./test-dir;});
-  nlqCleanPackageAllExtraneous = lib.cleanPackage lib.cleanSourceAllExtraneous (callPackage ./cleanAllExtraneous { src = ./test-dir;});
+  dlnCleanPackageNix = lib.cleanPackage lib.cleanSourceNix (callPackage ./cleanNix { src = ./test-dir;});
+  dlnCleanPackageHaskell = lib.cleanPackage lib.cleanSourceHaskell (callPackage ./cleanHaskell { src = ./test-dir;});
+  dlnCleanPackageSystemCruft = lib.cleanPackage lib.cleanSourceSystemCruft (callPackage ./cleanSystemCruft { src = ./test-dir;});
+  dlnCleanPackageEditors = lib.cleanPackage lib.cleanSourceEditors (callPackage ./cleanEditors { src = ./test-dir;});
+  dlnCleanPackageMaintainer = lib.cleanPackage lib.cleanSourceMaintainer (callPackage ./cleanMaintainer { src = ./test-dir;});
+  dlnCleanPackageAllExtraneous = lib.cleanPackage lib.cleanSourceAllExtraneous (callPackage ./cleanAllExtraneous { src = ./test-dir;});
 
 
   ## attrsets tests.
 
-  nlqAttrSets = callPackage ./attrsets {};
+  dlnAttrSets = callPackage ./attrsets {};
 
 
   ## IP address utility tests.
 
-  nlqIPAddr = callPackage ./ipaddr {};
+  dlnIPAddr = callPackage ./ipaddr {};
 
 
   ## Miscellaneous tests.
 
-  nlqMisc = callPackage ./misc {};
+  dlnMisc = callPackage ./misc {};
 
 
   ## Types tests.
 
-  nlqTypes = callPackage ./types {};
+  dlnTypes = callPackage ./types {};
 
 
   ## Security tests.
 
-  nlqFfdhe = callPackage ./security/ffdhe {};
+  dlnFfdhe = callPackage ./security/ffdhe {};
 }

@@ -20,21 +20,21 @@ with import (fixedNixPkgs + "/pkgs/top-level/release-lib.nix") {
 };
 
 (mapTestOn (rec {
-  nlqCleanSourceNix = all;
-  nlqCleanSourceHaskell = all;
-  nlqCleanSourceSystemCruft = all;
-  nlqCleanSourceEditors = all;
-  nlqCleanSourceMaintainer = all;
-  nlqCleanSourceAllExtraneous = all;
-  nlqCleanPackageNix = all;
-  nlqCleanPackageHaskell = all;
-  nlqCleanPackageSystemCruft = all;
-  nlqCleanPackageEditors = all;
-  nlqCleanPackageMaintainer = all;
-  nlqCleanPackageAllExtraneous = all;
-  nlqAttrSets = all;
-  nlqIPAddr = all;
-  nlqMisc = all;
-  nlqFfdhe = all;
-  nlqTypes = all;
+  dlnCleanSourceNix = all;
+  dlnCleanSourceHaskell = all;
+  dlnCleanSourceSystemCruft = all;
+  dlnCleanSourceEditors = all;
+  dlnCleanSourceMaintainer = all;
+  dlnCleanSourceAllExtraneous = all;
+  dlnCleanPackageNix = all;
+  dlnCleanPackageHaskell = all;
+  dlnCleanPackageSystemCruft = all;
+  dlnCleanPackageEditors = all;
+  dlnCleanPackageMaintainer = all;
+  dlnCleanPackageAllExtraneous = all;
+  dlnAttrSets = all;
+  dlnIPAddr = all;
+  dlnMisc = all;
+  dlnFfdhe = all;
+  dlnTypes = all;
 }))

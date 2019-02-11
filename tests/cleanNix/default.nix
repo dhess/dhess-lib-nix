@@ -15,7 +15,7 @@ in
 stdenv.mkDerivation rec {
   inherit src;
 
-  name = "nlq-cleanNix-test-${version}";
+  name = "dln-cleanNix-test-${version}";
 
   doCheck = true;
   checkPhase = ''

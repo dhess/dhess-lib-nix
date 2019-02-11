@@ -16,7 +16,7 @@ let
 in
 
 stdenv.mkDerivation {
-  name = "nlq-security-ffdhe-test-${version}";
+  name = "dln-security-ffdhe-test-${version}";
   buildInputs = [
     pkgs.coreutils
   ];

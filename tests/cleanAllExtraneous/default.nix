@@ -15,7 +15,7 @@ in
 stdenv.mkDerivation rec {
   inherit src;
 
-  name = "nlq-cleanAllExtraneous-test-${version}";
+  name = "dln-cleanAllExtraneous-test-${version}";
 
   doCheck = true;
   checkPhase = ''

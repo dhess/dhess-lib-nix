@@ -15,7 +15,7 @@ in
 stdenv.mkDerivation rec {
   inherit src;
 
-  name = "nlq-cleanEditors-test-${version}";
+  name = "dln-cleanEditors-test-${version}";
 
   doCheck = true;
   checkPhase = ''
