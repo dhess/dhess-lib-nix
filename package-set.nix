@@ -11,7 +11,7 @@ let
 
   self = foldl'
     (prev: overlay: prev // (overlay (pkgs // self) (pkgs // prev)))
-    {} (map import (import ./overlays.nix));
+    {} (map import (import ./overlays/overlays-list.nix));
 
 in
 self //
