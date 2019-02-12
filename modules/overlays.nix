@@ -4,5 +4,5 @@ let
 
 in
 {
-  nixpkgs.overlays = import ../.;
+  nixpkgs.overlays = import ../overlays;
 }

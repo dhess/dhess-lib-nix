@@ -9,7 +9,7 @@ in
 , nixpkgsArgs ? {
     config = {allowUnfree = false; inHydra = true; };
     overlays = [
-      (import ../.)
+      (import ../overlays)
       (import ../tests)
     ];
   }
