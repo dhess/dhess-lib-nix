@@ -11,13 +11,9 @@ let
       else (import ./fetch-github.nix) { jsonSpec = builtins.readFile ./nixpkgs-src.json; };
 
   nixpkgs = import fetchNixpkgs;
-
   pkgs = nixpkgs {};
-
   lib = pkgs.lib;
 
-in lib // (rec {
-
-  inherit fetchNixpkgs nixpkgs;
-
-})
+in lib // {
+  inherit fetchNixpkgs nixpkgs pkgs;
+}
