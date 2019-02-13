@@ -13,5 +13,5 @@
   ./lib/security.nix
   ./lib/testing.nix
   ./lib/types.nix
-  ./haskell/lib.nix
+  ./haskell
 ]
