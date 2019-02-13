@@ -8,11 +8,9 @@ in
 
 let
 
-  attrsets = pkgs.callPackage lib/attrsets {};
+  lib = import ./lib { inherit pkgs; };
 
 in
 {
-  lib = {
-    inherit attrsets;
-  };
+  inherit lib;
 }

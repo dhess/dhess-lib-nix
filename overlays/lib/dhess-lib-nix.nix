@@ -1,14 +1,12 @@
 self: super:
 
 let
-  # Provide access to the whole package, if needed.
-  path = ../../.;
+
+  selfDhessLibNix = (import ../../lib/dhess-lib-nix) { pkgs = super; };
 
 in
 {
   lib = (super.lib or {}) // {
-    dhess-lib-nix = (super.lib.dhess-lib-nix or {}) // {
-      inherit path;
-    };
+    dhess-lib-nix = (super.lib.types or {}) // selfDhessLibNix;
   };
 }

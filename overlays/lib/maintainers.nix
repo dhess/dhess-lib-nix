@@ -2,13 +2,11 @@ self: super:
 
 let
 
-  dhess-pers = "Drew Hess <src@drewhess.com>";
+  selfMaintainers = (import ../../lib/maintainers) { pkgs = super; };
 
 in
 {
   lib = (super.lib or {}) // {
-    maintainers = (super.lib.maintainers or {}) // {
-      inherit dhess-pers;
-    };
+    maintainers = (super.lib.maintainers or {}) // selfMaintainers;
   };
 }

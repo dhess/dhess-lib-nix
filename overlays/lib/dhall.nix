@@ -2,17 +2,11 @@ self: super:
 
 let
 
-  toNixFromFile = fileName:
-  let
-    source = builtins.readFile fileName;
-  in
-    super.dhallToNix source;
+  selfDhall = (import ../../lib/dhall) { pkgs = super; };
 
 in
 {
   lib = (super.lib or {}) // {
-    dhall = (super.lib.dhall or {}) // {
-      inherit toNixFromFile;
-    };
+    dhall = (super.lib.dhall or {}) // selfDhall;
   };
 }

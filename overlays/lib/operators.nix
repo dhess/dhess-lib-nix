@@ -2,11 +2,9 @@ self: super:
 
 let
 
-  exclusiveOr = x: y: (x && !y) || (!x && y);
+  operators = (import ../../lib/operators.nix) { pkgs = super; };
 
 in
 {
-  lib = (super.lib or {}) // {
-    inherit exclusiveOr;
-  };
+  lib = (super.lib or {}) // operators;
 }
