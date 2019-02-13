@@ -8,13 +8,11 @@ in
 
 let
 
-  inherit (pkgs) lib;
-  self = lib.foldl'
-    (prev: overlay: prev // (overlay (pkgs // self) (pkgs // prev)))
-    {} (map import (import ./overlays/overlays-list.nix));
+  attrsets = pkgs.callPackage lib/attrsets {};
 
 in
 {
-  inherit (self) lib;
-  inherit (self) haskell;
+  lib = {
+    inherit attrsets;
+  };
 }
