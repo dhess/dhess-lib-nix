@@ -3,6 +3,7 @@ self: super:
 let
 
   selfAttrsets = (import ../../lib/attrsets) { pkgs = super; };
+  selfCustomisation = (import ../../lib/customisation) { pkgs = super; };
   selfDhall = (import ../../lib/dhall) { pkgs = super; };
   selfDhessLibNix = (import ../../lib/dhess-lib-nix) { pkgs = super; };
   selfDns = (import ../../lib/dns) { pkgs = super; };
@@ -22,6 +23,7 @@ in
 {
   lib = (super.lib or {}) // {
     attrsets = (super.lib.attrsets or {}) // selfAttrsets;
+    customisation = (super.lib.customisation or {}) // selfCustomisation;
     dhall = (super.lib.dhall or {}) // selfDhall;
     dhess-lib-nix = (super.lib.types or {}) // selfDhessLibNix;
     dns = (super.lib.dns or {}) // selfDns;

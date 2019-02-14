@@ -16,10 +16,10 @@ let toplevel = {
 
   modules = import ./modules;
 
-  pkgs = pkgs.recurseIntoAttrs (pkgs.lib.makeScope pkgs.newScope (self: with self; {
+  pkgs = toplevel.lib.customisation.makePackageSet (self: with self; {
     lib = pkgs.lib // toplevel.lib;
     haskell = callPackage ./haskell {};
-  }));
+  });
 
 };
 
