@@ -15,9 +15,12 @@ let
   overlays.haskell = import ./overlays/haskell;
   overlays.all     = import ./overlays;
 
+  modules = import ./modules;
+
 in
 {
   inherit lib;
   inherit haskell;
   inherit overlays;
+  inherit modules;
 }
