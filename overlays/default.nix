@@ -2,6 +2,14 @@ self: super:
 
 with super.lib;
 
+let
+
+  overlays = [
+    ./lib
+    ./haskell
+  ];
+
+in
 (foldl' (flip extends) (_: super)
-  (map import (import ./overlays-list.nix)))
+  (map import overlays))
   self
