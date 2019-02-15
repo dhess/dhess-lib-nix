@@ -13,7 +13,6 @@ let
   ## Namespaced.
 
   attrsets = callLibs ./attrsets;
-  customisation = callLibs ./customisation;
   dhall = callLibs ./dhall;
   dhess-lib-nix = callLibs ./dhess-lib-nix;
   dns = callLibs ./dns;
@@ -34,7 +33,6 @@ let
 
   lib = {
     inherit attrsets;
-    inherit customisation;
     inherit dhall;
     inherit dhess-lib-nix;
     inherit dns;
