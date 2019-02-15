@@ -1,7 +1,6 @@
 [
   ./lib/attrsets.nix
   ./lib/clean-source.nix
-  ./lib/dhall.nix
   ./lib/directory.nix
   ./lib/dns.nix
   ./lib/ipaddr.nix
@@ -13,5 +12,6 @@
   ./lib/testing.nix
   ./lib/types.nix
   ./haskell/lib.nix
+  ./pkgs/dhall
   ./pkgs/emacs
 ]

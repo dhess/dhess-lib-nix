@@ -15,8 +15,9 @@ let
 
 in
 {
-  inherit (self) lib;
+  inherit (self) dhallToNixFromFile;
   inherit (self) haskell;
+  inherit (self) lib;
   inherit (self) melpaPackagesNgFor melpaPackagesNgFor';
 
   overlays.all = import ./overlays;
