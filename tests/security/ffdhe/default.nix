@@ -23,15 +23,15 @@ stdenv.mkDerivation {
 
   buildCommand = ''
     printf "Checking ffdhe2048.pem SHA-512... "
-    [[ `cat ${lib.security.ffdhe2048Pem} | sha512sum` == "${ffdhe2048Sha512}  -" ]] || (echo "mismatch" && exit 1)
+    [[ `cat ${pkgs.ffdhe2048Pem} | sha512sum` == "${ffdhe2048Sha512}  -" ]] || (echo "mismatch" && exit 1)
     echo "ok"
 
     printf "Checking ffdhe3072.pem SHA-512... "
-    [[ `cat ${lib.security.ffdhe3072Pem} | sha512sum` == "${ffdhe3072Sha512}  -" ]] || (echo "mismatch" && exit 1)
+    [[ `cat ${pkgs.ffdhe3072Pem} | sha512sum` == "${ffdhe3072Sha512}  -" ]] || (echo "mismatch" && exit 1)
     echo "ok"
 
     printf "Checking ffdhe4096.pem SHA-512... "
-    [[ `cat ${lib.security.ffdhe4096Pem} | sha512sum` == "${ffdhe4096Sha512}  -" ]] || (echo "mismatch" && exit 1)
+    [[ `cat ${pkgs.ffdhe4096Pem} | sha512sum` == "${ffdhe4096Sha512}  -" ]] || (echo "mismatch" && exit 1)
     echo "ok"
 
     touch $out
