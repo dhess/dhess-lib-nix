@@ -20,4 +20,8 @@ in
 
   overlays.all = import ./overlays;
   modules = self.lib.pathDirectory ./modules;
+
+  pkgs = {
+    inherit (self) melpaPackagesNgFor melpaPackagesNgFor';
+  };
 }

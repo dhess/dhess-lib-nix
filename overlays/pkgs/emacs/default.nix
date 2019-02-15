@@ -1,7 +1,4 @@
-# Use `pkgs` rather than `super` here because it makes it easier to
-# keep all the overrides straight.
-
-self: pkgs:
+self: super:
 
 let
 
@@ -12,25 +9,20 @@ let
   # Adapted from:
   # https://github.com/jwiegley/nix-config/blob/d22b72f14510d07e1438907e87cf26b34390a25f/overlays/10-emacs.nix#L929
   melpaPackagesNgFor' = emacs: epkgsOverrides:
-    (pkgs.emacsPackagesNgFor emacs).overrideScope' (self: super:
-      pkgs.lib.fix
-        (pkgs.lib.extends
+    (super.emacsPackagesNgFor emacs).overrideScope' (_: epkgs:
+      super.lib.fix
+        (super.lib.extends
            epkgsOverrides
-           (_: super.melpaPackages
+           (_: epkgs.melpaPackages
                  // { inherit emacs;
-                      inherit (super) melpaBuild;
+                      inherit (epkgs) melpaBuild;
                     })));
 
   # Given an emacs, generate an "Ng" package set for it, but override
   # the standard Nixpkgs emacs package locations with Melpa versions.
-  melpaPackagesNgFor = emacs: melpaPackagesNgFor' emacs (self: super: {});
+  melpaPackagesNgFor = emacs: melpaPackagesNgFor' emacs (_: _: {});
 
 in
-
 {
-  lib = (pkgs.lib or {}) // {
-    emacs = (pkgs.lib.emacs or {}) // {
-      inherit melpaPackagesNgFor melpaPackagesNgFor';
-    };
-  };
+  inherit melpaPackagesNgFor melpaPackagesNgFor';
 }

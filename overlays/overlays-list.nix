@@ -4,7 +4,6 @@
   ./lib/dhall.nix
   ./lib/directory.nix
   ./lib/dns.nix
-  ./lib/emacs.nix
   ./lib/ipaddr.nix
   ./lib/maintainers.nix
   ./lib/dhess-lib-nix.nix
@@ -14,4 +13,5 @@
   ./lib/testing.nix
   ./lib/types.nix
   ./haskell/lib.nix
+  ./pkgs/emacs
 ]
