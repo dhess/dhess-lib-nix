@@ -2,47 +2,41 @@ self: super:
 
 let
 
-  callOverlay = path: import path { pkgs = super; };
+  selfAttrsets = (import ../../lib/attrsets) { pkgs = super; };
+  selfCustomisation = (import ../../lib/customisation) { pkgs = super; };
+  selfDhall = (import ../../lib/dhall) { pkgs = super; };
+  selfDhessLibNix = (import ../../lib/dhess-lib-nix) { pkgs = super; };
+  selfDns = (import ../../lib/dns) { pkgs = super; };
+  selfEmacs = (import ../../lib/emacs) { pkgs = super; };
+  selfIpaddr = (import ../../lib/ipaddr) { pkgs = super; };
+  selfMaintainers = (import ../../lib/maintainers) { pkgs = super; };
+  selfSecurity = (import ../../lib/security) { pkgs = super; };
+  selfTesting = (import ../../lib/testing) { pkgs = super; };
+  selfTypes = (import ../../lib/types) { pkgs = super; };
 
-  overlay = {
-    attrsets = callOverlay ../../lib/attrsets;
-    customisation = callOverlay ../../lib/customisation;
-    dhall = callOverlay ../../lib/dhall;
-    dhessLibNix = callOverlay ../../lib/dhess-lib-nix;
-    dns = callOverlay ../../lib/dns;
-    emacs = callOverlay ../../lib/emacs;
-    ipaddr = callOverlay ../../lib/ipaddr;
-    maintainers = callOverlay ../../lib/maintainers;
-    security = callOverlay ../../lib/security;
-    testing = callOverlay ../../lib/testing;
-    types = callOverlay ../../lib/types;
-
-    cleanSource = callOverlay ../../lib/clean-source.nix;
-    directory = callOverlay ../../lib/directory.nix;
-    operators = callOverlay ../../lib/operators.nix;
-    secrets = callOverlay ../../lib/secrets.nix;
-  };
-
-  lib = (super.lib or {}) // {
-    attrsets = (super.lib.attrsets or {}) // overlay.attrsets;
-    customisation = (super.lib.customisation or {}) // overlay.customisation;
-    dhall = (super.lib.dhall or {}) // overlay.dhall;
-    dhess-lib-nix = (super.lib.types or {}) // overlay.dhessLibNix;
-    dns = (super.lib.dns or {}) // overlay.dns;
-    emacs = (super.lib.emacs or {}) // overlay.emacs;
-    ipaddr = (super.lib.ipaddr or {}) // overlay.ipaddr;
-    maintainers = (super.lib.maintainers or {}) // overlay.maintainers;
-    security = (super.lib.security or {}) // overlay.security;
-    testing = (super.lib.testing or {}) // overlay.testing;
-    types = (super.lib.types or {}) // overlay.types;
-  }
-  // overlay.cleanSource
-  // overlay.directory
-  // overlay.operators
-  // overlay.secrets
-  ;
+  cleanSource = (import ../../lib/clean-source.nix) { pkgs = super; };
+  directory = (import ../../lib/directory.nix) { pkgs = super; };
+  operators = (import ../../lib/operators.nix) { pkgs = super; };
+  secrets = (import ../../lib/secrets.nix) { pkgs = super; };
 
 in
 {
-  inherit lib;
+  lib = (super.lib or {}) // {
+    attrsets = (super.lib.attrsets or {}) // selfAttrsets;
+    customisation = (super.lib.customisation or {}) // selfCustomisation;
+    dhall = (super.lib.dhall or {}) // selfDhall;
+    dhess-lib-nix = (super.lib.types or {}) // selfDhessLibNix;
+    dns = (super.lib.dns or {}) // selfDns;
+    emacs = (super.lib.emacs or {}) // selfEmacs;
+    ipaddr = (super.lib.ipaddr or {}) // selfIpaddr;
+    maintainers = (super.lib.maintainers or {}) // selfMaintainers;
+    security = (super.lib.security or {}) // selfSecurity;
+    testing = (super.lib.testing or {}) // selfTesting;
+    types = (super.lib.types or {}) // selfTypes;
+  }
+  // cleanSource
+  // directory
+  // operators
+  // secrets
+  ;
 }
