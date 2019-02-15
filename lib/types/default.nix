@@ -1,10 +1,5 @@
 ## Additional useful types, mostly for NixOS modules.
 
-# Note that although this package depends on other local packages
-# (e.g., ipaddr), it can be imported either stand-alone or together
-# with the dependent packages. It properly scopes the local imports
-# and there should be no conflicts.
-
 { pkgs }:
 
 let
