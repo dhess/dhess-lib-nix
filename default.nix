@@ -17,4 +17,7 @@ in
 {
   inherit (self) lib;
   inherit (self) haskell;
+
+  overlays.all = import ./overlays;
+  modules = self.lib.pathDirectory ./modules;
 }
