@@ -2,13 +2,9 @@ self: super:
 
 let
 
-  overlay = {
-    lib = (import ../../haskell/lib) { pkgs = super; };
-  };
+  selfHaskell = (import ../../haskell) { pkgs = super; };
 
 in
 {
-  haskell = (super.haskell or {}) // {
-    lib = (super.haskell.lib or {}) // overlay.lib;
-  };
+  haskell = (super.haskell or {}) // selfHaskell;
 }

@@ -18,7 +18,7 @@ let toplevel = {
 
   pkgs = toplevel.lib.customisation.makePackageSet (self: with self; {
     lib = pkgs.lib // toplevel.lib;
-    haskell = import ./haskell { inherit pkgs; };
+    haskell = callPackage ./haskell {};
   });
 
 };
