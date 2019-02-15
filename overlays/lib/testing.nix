@@ -1,12 +1,14 @@
+## Convenience functions for tests, esp. for Hydras.
+
 self: super:
 
 let
 
-  selfTesting = (import ../../lib/testing) { pkgs = super; };
-
 in
 {
   lib = (super.lib or {}) // {
-    testing = (super.lib.testing or {}) // selfTesting;
+    testing = (super.lib.testing or {}) // {
+      enumerateSystems = pkg: systems: map (system: pkg.${system}) systems;
+    };
   };
 }

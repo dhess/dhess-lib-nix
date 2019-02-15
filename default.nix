@@ -8,9 +8,11 @@ in
 
 let
 
-  lib = import ./lib { inherit pkgs; };
+  attrsets = pkgs.callPackage lib/attrsets {};
 
 in
 {
-  inherit lib;
+  lib = {
+    inherit attrsets;
+  };
 }
