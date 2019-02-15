@@ -6,9 +6,10 @@ in
 
 { pkgs ? defaultPkgs }:
 
-let toplevel = {
+let
 
   lib     = import ./lib { inherit pkgs; };
+  haskell = import ./haskell { inherit pkgs; };
 
   overlays.lib     = import ./overlays/lib;
   overlays.haskell = import ./overlays/haskell;
@@ -16,12 +17,10 @@ let toplevel = {
 
   modules = import ./modules;
 
-  pkgs = pkgs.recurseIntoAttrs (pkgs.lib.makeScope pkgs.newScope (self: with self; {
-    lib = pkgs.lib // toplevel.lib;
-    haskell = callPackage ./haskell {};
-  }));
-
-};
-
 in
-toplevel
+{
+  inherit lib;
+  inherit haskell;
+  inherit overlays;
+  inherit modules;
+}
