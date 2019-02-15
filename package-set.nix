@@ -1,0 +1,25 @@
+let
+  nixpkgs = (import ./lib.nix).nixpkgs;
+
+in
+
+{ pkgs ? nixpkgs {} }:
+
+with pkgs.lib;
+
+let
+
+  self = foldl'
+    (prev: overlay: prev // (overlay (pkgs // self) (pkgs // prev)))
+    {} (map import (import ./overlays/overlays-list.nix));
+
+in
+self //
+{
+  modules = self.lib.pathDirectory ./modules;
+
+  overlays = {
+    lib = self.lib.importDirectory ./overlays/lib;
+    haskell = self.lib.importDirectory ./overlays/haskell;
+  };
+}

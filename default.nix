@@ -8,12 +8,14 @@ in
 
 let
 
-  lib     = import ./lib { inherit pkgs; };
+  lib = import ./lib { inherit pkgs; };
   haskell = import ./haskell { inherit pkgs; };
 
-  overlays.lib     = import ./overlays/lib;
-  overlays.haskell = import ./overlays/haskell;
-  overlays.all     = import ./overlays;
+  overlays = {
+    lib = lib.importDirectory ./overlays/lib;
+    haskell = lib.importDirectory ./overlays/haskell;
+    all = import ./overlays;
+  };
 
 in
 {
