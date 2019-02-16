@@ -22,5 +22,5 @@ in
   inherit (self) melpaPackagesNgFor melpaPackagesNgFor';
 
   overlays.all = import ./overlays;
-  modules = self.lib.pathDirectory ./modules;
+  modules = self.lib.sources.pathDirectory ./modules;
 }
