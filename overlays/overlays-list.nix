@@ -1,7 +1,5 @@
 [
   ./lib/attrsets.nix
-  ./lib/clean-source.nix
-  ./lib/directory.nix
   ./lib/dns.nix
   ./lib/ipaddr.nix
   ./lib/maintainers.nix
@@ -9,6 +7,7 @@
   ./lib/operators.nix
   ./lib/secrets.nix
   ./lib/security.nix
+  ./lib/sources.nix
   ./lib/testing.nix
   ./lib/types.nix
   ./haskell/lib.nix

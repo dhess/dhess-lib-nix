@@ -4,7 +4,8 @@ self: super:
 
 let
 
-  inherit (super.lib) all ipaddr mkOption stringToCharacters types resolvesToStorePath;
+  inherit (super.lib) all ipaddr mkOption stringToCharacters types;
+  inherit (super.lib.secrets) resolvesToStorePath;
 
   addCheckDesc = desc: elemType: check: types.addCheck elemType check
     // { description = "${elemType.description} (with check: ${desc})"; };

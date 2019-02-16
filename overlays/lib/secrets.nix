@@ -30,8 +30,10 @@ let
 in
 {
   lib = (super.lib or {}) // {
-    inherit resolvesToStorePath;
-    inherit secretPath secretReadFile secretFileContents;
+    secrets = (super.lib.secrets or {}) // {
+      inherit resolvesToStorePath;
+      inherit secretPath secretReadFile secretFileContents;
+    };
   };
 }
 
