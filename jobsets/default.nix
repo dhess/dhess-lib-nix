@@ -15,8 +15,6 @@ let
     emailresponsible = false;
   };
 
-  nixpkgs-src = builtins.fromJSON (builtins.readFile ../nixpkgs-src.json);
-
   pkgs = import nixpkgs {};
 
   defaultSettings = {

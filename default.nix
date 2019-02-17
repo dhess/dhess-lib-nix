@@ -1,6 +1,6 @@
 let
 
-  localLib = import ./lib.nix;
+  localLib = import ./lib;
   defaultPkgs = localLib.pkgs;
 
 in

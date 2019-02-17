@@ -12,7 +12,7 @@ let
 
   nixpkgs = import fetchNixpkgs;
   pkgs = nixpkgs {};
-  pkgsWithLocalOverlays = nixpkgs { overlays = [ (import ./overlays) ]; };
+  pkgsWithLocalOverlays = nixpkgs { overlays = [ (import ../overlays) ]; };
   lib = pkgsWithLocalOverlays.lib;
 
 in lib // {
