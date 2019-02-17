@@ -12,8 +12,9 @@ let
 
   nixpkgs = import fetchNixpkgs;
   pkgs = nixpkgs {};
-  lib = pkgs.lib;
+  pkgsWithLocalOverlays = nixpkgs { overlays = [ (import ./overlays) ]; };
+  lib = pkgsWithLocalOverlays.lib;
 
 in lib // {
-  inherit fetchNixpkgs nixpkgs pkgs;
+  inherit fetchNixpkgs nixpkgs pkgs pkgsWithLocalOverlays;
 }

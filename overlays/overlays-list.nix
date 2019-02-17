@@ -1,5 +1,6 @@
 [
   ./lib/attrsets.nix
+  ./lib/customisation.nix
   ./lib/dns.nix
   ./lib/ipaddr.nix
   ./lib/maintainers.nix

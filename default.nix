@@ -1,6 +1,7 @@
 let
 
-  defaultPkgs = (import ./lib.nix).pkgs;
+  localLib = import ./lib.nix;
+  defaultPkgs = localLib.pkgs;
 
 in
 
@@ -8,13 +9,9 @@ in
 
 let
 
-  inherit (pkgs) lib;
-  self =
-  let
-    overlays = import ./overlays/overlays-list.nix;
-    toFix = lib.foldl' (lib.flip lib.extends) (_: pkgs) (map import overlays);
-  in
-    lib.fix toFix;
+  self = localLib.customisation.composeOverlaysFromFiles
+           (import ./overlays/overlays-list.nix)
+           pkgs;
 
 in
 {
