@@ -2,6 +2,7 @@
   ./lib/attrsets.nix
   ./lib/customisation.nix
   ./lib/dns.nix
+  ./lib/fetchers.nix
   ./lib/ipaddr.nix
   ./lib/maintainers.nix
   ./lib/dhess-lib-nix.nix
