@@ -9,9 +9,12 @@ in
 let
 
   inherit (pkgs) lib;
-  self = lib.foldl'
-    (prev: overlay: prev // (overlay (pkgs // self) (pkgs // prev)))
-    {} (map import (import ./overlays/overlays-list.nix));
+  self =
+  let
+    overlays = import ./overlays/overlays-list.nix;
+    toFix = lib.foldl' (lib.flip lib.extends) (_: pkgs) (map import overlays);
+  in
+    lib.fix toFix;
 
 in
 {
