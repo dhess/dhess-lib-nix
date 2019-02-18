@@ -3,6 +3,25 @@ self: super:
 let
 
   localLib = import ../lib;
+  overlays = [
+    ./lib/attrsets.nix
+    ./lib/customisation.nix
+    ./lib/dns.nix
+    ./lib/fetchers.nix
+    ./lib/ipaddr.nix
+    ./lib/maintainers.nix
+    ./lib/dhess-lib-nix.nix
+    ./lib/operators.nix
+    ./lib/secrets.nix
+    ./lib/security.nix
+    ./lib/sources.nix
+    ./lib/testing.nix
+    ./lib/types.nix
+    ./haskell/lib.nix
+    ./pkgs/dhall
+    ./pkgs/emacs
+    ./pkgs/security
+  ];
 
 in
-localLib.composeOverlaysFromFiles (import ./overlays-list.nix) super
+localLib.composeOverlaysFromFiles overlays super
