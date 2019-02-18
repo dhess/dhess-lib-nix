@@ -24,8 +24,23 @@ let
   fixedNixpkgs = fixedNixSrc "nixpkgs_override" ./nixpkgs-src.json;
   nixpkgs = import fixedNixpkgs;
   pkgs = nixpkgs {};
-  pkgsWithLocalOverlays = nixpkgs { overlays = [ (import ../overlays) ]; };
-  lib = pkgsWithLocalOverlays.lib;
+  lib = pkgs.lib;
+
+
+  ## These functions are useful for building package sets from
+  ## stand-alone overlay repos.
+
+  composeOverlays = overlays: pkgSet:
+  let
+    toFix = lib.foldl'
+              (lib.flip lib.extends)
+              (lib.const pkgSet)
+              overlays;
+  in
+    lib.fix toFix;
+
+  composeOverlaysFromFiles = overlaysFiles: pkgSet:
+    composeOverlays (map import overlaysFiles) pkgSet;
 
 in lib // {
 
@@ -34,5 +49,6 @@ in lib // {
   ## the local overlays into their own package set.
 
   inherit fixedNixSrc fixedNixpkgs;
-  inherit nixpkgs pkgs pkgsWithLocalOverlays;
+  inherit nixpkgs pkgs;
+  inherit composeOverlays composeOverlaysFromFiles;
 }

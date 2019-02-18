@@ -1,6 +1,7 @@
 let
 
-  fixedNixpkgs = (import ../lib).fixedNixpkgs;
+  localLib = import ../lib;
+  localPkgs = (import ../.) {};
 
 in
 
@@ -9,13 +10,13 @@ in
 , nixpkgsArgs ? {
     config = {allowUnfree = false; inHydra = true; };
     overlays = [
-      (import ../overlays)
+      localPkgs.overlays.all
       (import ../tests)
     ];
   }
 }:
 
-with import (fixedNixpkgs + "/pkgs/top-level/release-lib.nix") {
+with import (localPkgs.lib.fetchers.fixedNixpkgs + "/pkgs/top-level/release-lib.nix") {
   inherit supportedSystems scrubJobs nixpkgsArgs;
 };
 

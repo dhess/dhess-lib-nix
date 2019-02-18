@@ -1,7 +1,8 @@
 self: super:
 
-with super.lib;
+let
 
-(foldl' (flip extends) (_: super)
-  (map import (import ./overlays-list.nix)))
-  self
+  localLib = import ../lib;
+
+in
+localLib.composeOverlaysFromFiles (import ./overlays-list.nix) super

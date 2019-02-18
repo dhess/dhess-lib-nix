@@ -2,6 +2,7 @@ let
 
   localLib = import ./lib;
   defaultPkgs = localLib.pkgs;
+  localOverlays = import ./overlays;
 
 in
 
@@ -9,9 +10,7 @@ in
 
 let
 
-  self = localLib.customisation.composeOverlaysFromFiles
-           (import ./overlays/overlays-list.nix)
-           pkgs;
+  self = localLib.composeOverlays (localLib.singleton localOverlays) pkgs;
 
 in
 {
@@ -21,6 +20,6 @@ in
   inherit (self) lib;
   inherit (self) melpaPackagesNgFor melpaPackagesNgFor';
 
-  overlays.all = import ./overlays;
+  overlays.all = localOverlays;
   modules = self.lib.sources.pathDirectory ./modules;
 }

@@ -13,9 +13,8 @@ in
     dhess-lib-nix = (super.lib.dhess-lib-nix or {}) // {
       inherit path;
 
-      # Access to dhess-lib-nix's fixed nixpkgs, packages, and
-      # packages plus overlays.
-      inherit (localLibs) nixpkgs pkgs pkgsWithLocalOverlays;
+      # Access to dhess-lib-nix's fixed nixpkgs.
+      inherit (localLibs) nixpkgs;
     };
   };
 }
