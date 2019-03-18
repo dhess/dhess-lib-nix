@@ -14,7 +14,6 @@ let
 
 in
 {
-  inherit (self) dhallToNixFromFile;
   inherit (self) ffdhe2048Pem ffdhe3072Pem ffdhe4096Pem;
   inherit (self) haskell;
   inherit (self) lib;

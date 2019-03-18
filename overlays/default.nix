@@ -18,7 +18,6 @@ let
     ./lib/testing.nix
     ./lib/types.nix
     ./haskell/lib.nix
-    ./pkgs/dhall
     ./pkgs/emacs
     ./pkgs/security
   ];
