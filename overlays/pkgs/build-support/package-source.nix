@@ -7,7 +7,7 @@
 
 stdenv.mkDerivation {
   inherit name version;
-  src = srcPath;
+  src = lib.cleanSource srcPath;
 
   installPhase = ''
     mkdir $out
