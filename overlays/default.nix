@@ -18,8 +18,10 @@ let
     ./lib/testing.nix
     ./lib/types.nix
     ./haskell/lib.nix
+    ./pkgs/build-support
     ./pkgs/emacs
     ./pkgs/security
+    ./pkgs/dhess-lib-nix-source
   ];
 
 in

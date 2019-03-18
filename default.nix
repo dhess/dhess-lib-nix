@@ -18,6 +18,9 @@ in
   inherit (self) haskell;
   inherit (self) lib;
   inherit (self) melpaPackagesNgFor melpaPackagesNgFor';
+  inherit (self) packageSource;
+
+  inherit (self) dhess-lib-nix-source;
 
   overlays.all = localOverlays;
   modules = self.lib.sources.pathDirectory ./modules;
