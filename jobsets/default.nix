@@ -33,9 +33,10 @@ let
     };
   };
 
-  # Build against a nixpkgs-channels repo. This can run fairly often
-  # as the channels don't update so much.
+  # Build against a nixpkgs-channels repo. Run these every 3 hours so
+  # that they're less likely to interfere with our own commits.
   mkNixpkgsChannels = dhessLibNixBranch: nixpkgsRev: {
+    checkinterval = 60 * 60 * 3;
     inputs = {
       dhessLibNix = mkFetchGithub "${dhessLibNixUri} ${dhessLibNixBranch}";
       nixpkgs_override = mkFetchGithub "https://github.com/NixOS/nixpkgs-channels.git ${nixpkgsRev}";
