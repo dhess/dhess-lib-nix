@@ -73,4 +73,13 @@ runTests {
     expected = [ "1.1.1.1@853#cloudflare-dns.com" "1.0.0.1@853#cloudflare-dns.com" "2606:4700:4700::1111@853#cloudflare-dns.com" "2606:4700:4700::1001@853#cloudflare-dns.com" ];
   };
 
+  test-aAndAV4DNSOverTLS = {
+    expr = dns.aAndAV4DNSOverTLS;
+    expected = [ "217.169.20.22@853#dns.aa.net.uk" "217.169.20.23@853#dns.aa.net.uk" ];
+  };
+
+  test-aAndADNSOverTLS = {
+    expr = dns.aAndADNSOverTLS;
+    expected = [ "217.169.20.22@853#dns.aa.net.uk" "217.169.20.23@853#dns.aa.net.uk" "2001:8b0::2022@853#dns.aa.net.uk" "2001:8b0::2023@853#dns.aa.net.uk" ];
+  };
 }

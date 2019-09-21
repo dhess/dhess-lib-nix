@@ -21,10 +21,22 @@ let
   ## caching DNS server, in combination with with Unbound
   ## tls-cert-bundle and forward-tls-upstream directives.
 
-  ipToTLS = ip: "${ip}@853#cloudflare-dns.com";
-  cloudflareV4DNSOverTLS = map ipToTLS cloudflareV4DNS;
-  cloudflareV6DNSOverTLS = map ipToTLS cloudflareV6DNS;
+  cfIPToTLS = ip: "${ip}@853#cloudflare-dns.com";
+  cloudflareV4DNSOverTLS = map cfIPToTLS cloudflareV4DNS;
+  cloudflareV6DNSOverTLS = map cfIPToTLS cloudflareV6DNS;
   cloudflareDNSOverTLS = cloudflareV4DNSOverTLS ++ cloudflareV6DNSOverTLS;
+
+
+  ## A&A's DoT service.
+  #
+  # This format is only useful with Unbound; see notes on the
+  # Cloudflare equivalent service above.
+  #
+  # See https://support.aa.net.uk/DoH_and_DoT.
+
+  aAndAV4DNSOverTLS = [ "217.169.20.22@853#dns.aa.net.uk" "217.169.20.23@853#dns.aa.net.uk" ];
+  aAndAV6DNSOverTLS = [ "2001:8b0::2022@853#dns.aa.net.uk" "2001:8b0::2023@853#dns.aa.net.uk" ];
+  aAndADNSOverTLS = aAndAV4DNSOverTLS ++ aAndAV6DNSOverTLS;  
 
 in
 {
@@ -33,6 +45,7 @@ in
       inherit googleV4DNS googleV6DNS googleDNS;
       inherit cloudflareV4DNS cloudflareV6DNS cloudflareDNS;
       inherit cloudflareV4DNSOverTLS cloudflareV6DNSOverTLS cloudflareDNSOverTLS;
+      inherit aAndAV4DNSOverTLS aAndAV6DNSOverTLS aAndADNSOverTLS;
     };
   };
 }
