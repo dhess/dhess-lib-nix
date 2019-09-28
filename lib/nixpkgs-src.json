@@ -1,6 +1,6 @@
 {
     "owner":  "nixos"
 ,   "repo":   "nixpkgs"
-,   "rev":    "dd2701e82d882c779f226d0d94590fb77177201f"
-,   "sha256": "0zkk412c3sb4m7c5bsg92fkxkvi0df5jp728pkp3w2428p2gpldq"
+,   "rev":    "15f9bdb6489e7e55a861958a9388bf5ad3b2d2cd"
+,   "sha256": "11k30295mzg62fw86h4pvkm8n20mqqfwq7sxxaqims4q4l8qcdr0"
 }
