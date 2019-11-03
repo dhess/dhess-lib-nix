@@ -39,7 +39,7 @@ let
     checkinterval = 60 * 60 * 3;
     inputs = {
       dhessLibNix = mkFetchGithub "${dhessLibNixUri} ${dhessLibNixBranch}";
-      nixpkgs_override = mkFetchGithub "https://github.com/NixOS/nixpkgs-channels.git ${nixpkgsRev}";
+      nixpkgs = mkFetchGithub "https://github.com/NixOS/nixpkgs-channels.git ${nixpkgsRev}";
     };
   };
 
@@ -49,7 +49,7 @@ let
     checkinterval = 60 * 60 * 12;
     inputs = {
       dhessLibNix = mkFetchGithub "${dhessLibNixUri} ${dhessLibNixBranch}";
-      nixpkgs_override = mkFetchGithub "https://github.com/NixOS/nixpkgs.git ${nixpkgsRev}";
+      nixpkgs = mkFetchGithub "https://github.com/NixOS/nixpkgs.git ${nixpkgsRev}";
     };
   };
 
