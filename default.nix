@@ -6,11 +6,11 @@ let
 
 in
 
-{ pkgs ? defaultPkgs }:
+{ nixpkgs ? defaultPkgs }:
 
 let
 
-  self = localLib.composeOverlays (localLib.singleton localOverlays) pkgs;
+  self = localLib.composeOverlays (localLib.singleton localOverlays) nixpkgs;
 
 in
 {
