@@ -39,7 +39,7 @@ in lib // {
   ## that import this one, and want to bootstrap before they can load
   ## the local overlays into their own package set.
 
-  inherit fixedNixpkgs;
+  inherit fixedNixSrc fixedNixpkgs;
   inherit nixpkgs pkgs;
   inherit composeOverlays composeOverlaysFromFiles;
 }
