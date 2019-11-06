@@ -8,7 +8,7 @@ in
 {
   lib = (super.lib or {}) // {
     fetchers = (super.lib.fetchers or {}) // {
-      inherit (localLibs) fixedNixpkgs;
+      inherit (localLibs) fixedNixSrc fixedNixpkgs;
     };
   };
 }

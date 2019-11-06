@@ -7,7 +7,6 @@ in
 
 { supportedSystems ? [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ]
 , scrubJobs ? true
-, nixpkgs ? localPkgs.lib.fetchers.fixedNixpkgs
 , nixpkgsArgs ? {
     config = {allowUnfree = false; inHydra = true; };
     overlays = [
@@ -17,7 +16,7 @@ in
   }
 }:
 
-with import (nixpkgs + "/pkgs/top-level/release-lib.nix") {
+with import (localPkgs.lib.fetchers.fixedNixpkgs + "/pkgs/top-level/release-lib.nix") {
   inherit supportedSystems scrubJobs nixpkgsArgs;
 };
 
