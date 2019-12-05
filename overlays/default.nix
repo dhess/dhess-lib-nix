@@ -11,6 +11,7 @@ let
     ./lib/ipaddr.nix
     ./lib/maintainers.nix
     ./lib/dhess-lib-nix.nix
+    ./lib/environment.nix
     ./lib/misc.nix
     ./lib/operators.nix
     ./lib/secrets.nix
