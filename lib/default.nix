@@ -12,7 +12,7 @@ let
 
   sources = import ../nix/sources.nix;
 
-  fixedNixpkgs = fixedNixSrc "nixpkgs_override" sources.nixpkgs;
+  fixedNixpkgs = fixedNixSrc "nixpkgs_override" sources.nixpkgs-unstable;
   nixpkgs = import fixedNixpkgs;
   pkgs = nixpkgs {};
   lib = pkgs.lib;
