@@ -16,6 +16,7 @@ let
     ./lib/operators.nix
     ./lib/secrets.nix
     ./lib/security.nix
+    ./lib/ssh.nix
     ./lib/sources.nix
     ./lib/testing.nix
     ./lib/types.nix
