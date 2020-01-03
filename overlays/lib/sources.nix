@@ -139,6 +139,11 @@ let
 in
 {
   lib = (super.lib or {}) // {
+
+    # XXX dhess - temporary fix for Rust build-support in upstream
+    # nixpkgs.
+    filterSource = builtins.filterSource;
+
     sources = (super.lib.sources or {}) // {
       # Filters.
       inherit cleanSourceFilterNix;
